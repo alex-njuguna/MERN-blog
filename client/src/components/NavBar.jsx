@@ -1,88 +1,75 @@
+import "./NavBar.css";
+import { Link } from "react-router-dom";
+
 export default function NavBar() {
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary border-bottom">
-      <div className="container-fluid">
-        <a className="navbar-brand" href="#">
-          <span className="bg-danger text-light px-3 py-1 fw-bold fst-italic rounded">
-            Alex
-          </span>
-          Blog
-        </a>
-
-        <form className="d-flex" role="search mx-auto">
-          <div className="input-group border p-1 rounded">
-            <input
-              className="form-control me-2 border-0"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button className="btn btn-outline-success border-0" type="submit">
-              Search
-            </button>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <div className="custom-container">
+          <div className="logo">
+            <Link class="navbar-brand" to="/">
+              <span className="bg-danger px-3 py-1 rounded text-light">
+                Alex
+              </span>
+              Blog
+            </Link>
           </div>
-        </form>
 
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
-                Home
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Link
-              </a>
-            </li>
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Dropdown
-              </a>
-              <ul className="dropdown-menu">
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Action
-                  </a>
+          <div className="search">
+            <form class="d-flex" role="search">
+              <input
+                class="form-control me-2 border-0"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+                style={{ width: "100px" }}
+              />
+              <button class="btn btn-outline-success" type="submit">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+            </form>
+          </div>
+
+          <div className="links">
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ms-auto me-5 mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <Link class="nav-link active" aria-current="page" to="/">
+                    Home
+                  </Link>
                 </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Another action
-                  </a>
+                <li class="nav-item">
+                  <Link class="nav-link" to="dashboard/">
+                    Dashboard
+                  </Link>
                 </li>
-                <li>
-                  <hr className="dropdown-divider" />
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Something else here
-                  </a>
+                <li class="nav-item">
+                  <Link class="nav-link" to="projects/">
+                    Projects
+                  </Link>
                 </li>
               </ul>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link disabled" aria-disabled="true">
-                Disabled
-              </a>
-            </li>
-          </ul>
+            </div>
+          </div>
+          <div className="#others">
+            <Link className="btn btn-primary border-0" to="sign-in">
+              Sign In
+            </Link>
+            <Link className="btn btn-outline-dark border-0" href="">
+              <i class="fa-solid fa-moon fa-lg"></i>
+            </Link>
+          </div>
         </div>
       </div>
     </nav>

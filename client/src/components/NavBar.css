@@ -1,0 +1,47 @@
+.custom-container {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 100%;
+    grid-gap: 1rem;
+    grid-template-areas: 
+        "logo search  links others"
+    ;
+    align-items: center;
+}
+
+.logo {
+    grid-area: logo;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+}
+
+.search {
+    grid-area: search;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+}
+
+.links {
+    grid-area: links;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.others {
+    grid-area: others;
+    display: flex;
+    align-items: end;
+    justify-content: end;
+}
+
+@media (max-width: 1200px) {
+    .custom-container{
+        grid-template-areas: 
+        "logo search others links"
+    ;
+    }
+}
