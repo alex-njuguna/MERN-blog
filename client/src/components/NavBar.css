@@ -38,6 +38,13 @@
     justify-content: end;
 }
 
+.active {
+    background-color: aqua;
+    border-radius: 5px;
+    padding: 3px 5px;
+    margin-left: 5px;
+}
+
 @media (max-width: 1200px) {
     .custom-container{
         grid-template-areas: 
@@ -49,5 +56,10 @@
 @media (max-width: 600px) {
     .hide-me {
         visibility: hidden;
+    }
+    .sign-in {
+        font-size: medium;
+        margin-bottom: 40px;
+
     }
 }

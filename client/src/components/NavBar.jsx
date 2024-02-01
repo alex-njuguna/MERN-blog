@@ -1,13 +1,17 @@
 import "./NavBar.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function NavBar() {
+  const path = useLocation().pathname;
   return (
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
+    <nav
+      className="navbar navbar-expand-lg shadow"
+      style={{ backgroundColor: "#ffdbdc" }}
+    >
+      <div className="container-fluid">
         <div className="custom-container">
           <div className="logo">
-            <Link class="navbar-brand" to="/">
+            <Link className="navbar-brand" to="/">
               <span className="bg-danger px-3 py-1 rounded text-light">
                 Alex
               </span>
@@ -16,23 +20,23 @@ export default function NavBar() {
           </div>
 
           <div className="search">
-            <form class="d-flex" role="search">
+            <form className="d-flex" role="search">
               <input
-                class="form-control me-2 border-0"
+                className="form-control me-2 border-0"
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
                 style={{ width: "100px" }}
               />
-              <button class="btn btn-outline-success" type="submit">
-                <i class="fa-solid fa-magnifying-glass"></i>
+              <button className="btn btn-outline-success" type="submit">
+                <i className="fa-solid fa-magnifying-glass"></i>
               </button>
             </form>
           </div>
 
           <div className="links">
             <button
-              class="navbar-toggler"
+              className="navbar-toggler"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#navbarSupportedContent"
@@ -40,22 +44,35 @@ export default function NavBar() {
               aria-expanded="false"
               aria-label="Toggle navigation"
             >
-              <span class="navbar-toggler-icon"></span>
+              <span className="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav ms-auto me-5 mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <Link class="nav-link active" aria-current="page" to="/">
+            <div
+              className="collapse navbar-collapse"
+              id="navbarSupportedContent"
+            >
+              <ul className="navbar-nav ms-auto me-5 mb-2 mb-lg-0">
+                <li className="nav-item">
+                  <Link
+                    className={`nav-link ${path === "/" && "active"}`}
+                    aria-current="page"
+                    to="/"
+                  >
                     Home
                   </Link>
                 </li>
-                <li class="nav-item">
-                  <Link class="nav-link" to="dashboard/">
+                <li className="nav-item">
+                  <Link
+                    className={`nav-link ${path === "/dashboard/" && "active"}`}
+                    to="dashboard/"
+                  >
                     Dashboard
                   </Link>
                 </li>
-                <li class="nav-item">
-                  <Link class="nav-link" to="projects/">
+                <li className="nav-item">
+                  <Link
+                    className={`nav-link ${path === "/projects/" && "active"}`}
+                    to="projects/"
+                  >
                     Projects
                   </Link>
                 </li>
@@ -67,10 +84,10 @@ export default function NavBar() {
               className="btn btn-outline-dark border-0 me-2 hide-me"
               href=""
             >
-              <i class="fa-solid fa-moon fa-lg"></i>
+              <i className="fa-solid fa-moon fa-lg"></i>
             </Link>
             <Link
-              className="btn btn-sm btn-outline-warning border-0 text-dark"
+              className="btn btn-sm btn-outline-info border text-dark fw-bold sign-in"
               to="sign-in"
             >
               Sign In
