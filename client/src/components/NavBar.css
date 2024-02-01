@@ -45,3 +45,9 @@
     ;
     }
 }
+
+@media (max-width: 600px) {
+    .hide-me {
+        visibility: hidden;
+    }
+}

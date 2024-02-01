@@ -63,11 +63,17 @@ export default function NavBar() {
             </div>
           </div>
           <div className="#others">
-            <Link className="btn btn-primary border-0" to="sign-in">
-              Sign In
-            </Link>
-            <Link className="btn btn-outline-dark border-0" href="">
+            <Link
+              className="btn btn-outline-dark border-0 me-2 hide-me"
+              href=""
+            >
               <i class="fa-solid fa-moon fa-lg"></i>
+            </Link>
+            <Link
+              className="btn btn-sm btn-outline-warning border-0 text-dark"
+              to="sign-in"
+            >
+              Sign In
             </Link>
           </div>
         </div>
