@@ -5,7 +5,7 @@ export default function NavBar() {
   const path = useLocation().pathname;
   return (
     <nav
-      className="navbar navbar-expand-lg shadow mb-5 fixed-top"
+      className="navbar navbar-expand-lg shadow fixed-top"
       style={{ backgroundColor: "#ffdbdc" }}
     >
       <div className="container-fluid">
