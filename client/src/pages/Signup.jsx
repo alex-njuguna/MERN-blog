@@ -42,11 +42,11 @@ export default function SignUp() {
   };
 
   return (
-    <div className="container-fluid  p-5">
+    <div className="container-md d-flex flex-column align-items-center justify-content-start  p-5">
       <div className="row">
         {/* logo half */}
         <div className="col-md-6">
-          <div className="container-fluid d-flex flex-column align-items-start justify-content-center mx-5 p-5">
+          <div className="container-fluid  mx-4 p-5">
             <Link className="navbar-brand fw-bold fs-1" to="/">
               <span className="bg-danger px-3 py-1 rounded text-light">
                 Alex
@@ -54,15 +54,15 @@ export default function SignUp() {
               Blog
             </Link>
             <p className="mt-3 fs-6 fw-medium">
-              This is a demo project, you can sign in with your email or with
-              google.
+              This is a demo project, you can sign in with your email or with a
+              google account.
             </p>
           </div>
         </div>
 
         {/* signup inputs half */}
         <div className="col-md-6">
-          <div className="container-fluid d-flex flex-column align-items-start justify-content-center mx-5 px-5 pt-2">
+          <div className="container-fluid mx-4 px-5 pt-2">
             <form onSubmit={handleSubmit}>
               <div className="mb-3">
                 <label htmlFor="username" className="form-label">
