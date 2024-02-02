@@ -5,7 +5,7 @@ export default function NavBar() {
   const path = useLocation().pathname;
   return (
     <nav
-      className="navbar navbar-expand-lg shadow"
+      className="navbar navbar-expand-lg shadow mb-5 fixed-top"
       style={{ backgroundColor: "#ffdbdc" }}
     >
       <div className="container-fluid">
@@ -24,6 +24,7 @@ export default function NavBar() {
               <input
                 className="form-control me-2 border-0"
                 type="search"
+                id="search"
                 placeholder="Search"
                 aria-label="Search"
                 style={{ width: "100px" }}
