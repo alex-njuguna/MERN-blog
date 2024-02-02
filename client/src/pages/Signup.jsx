@@ -42,7 +42,7 @@ export default function SignUp() {
   };
 
   return (
-    <div className="container-fluid mt-5 p-5">
+    <div className="container-fluid  p-5">
       <div className="row">
         {/* logo half */}
         <div className="col-md-6">
