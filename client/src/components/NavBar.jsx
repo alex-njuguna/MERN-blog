@@ -5,14 +5,14 @@ export default function NavBar() {
   const path = useLocation().pathname;
   return (
     <nav
-      className="navbar navbar-expand-lg shadow fixed-top"
-      style={{ backgroundColor: "#ffdbdc" }}
+      className="navbar navbar-expand-lg  shadow fixed-top"
+      style={{ backgroundColor: "#3f51b5" }}
     >
       <div className="container-fluid">
         <div className="custom-container">
           <div className="logo">
-            <Link className="navbar-brand" to="/">
-              <span className="bg-danger px-3 py-1 rounded text-light">
+            <Link className="navbar-brand text-light" to="/">
+              <span className="bg-danger px-3 py-1 rounded">
                 Alex
               </span>
               Blog
@@ -29,7 +29,7 @@ export default function NavBar() {
                 aria-label="Search"
                 style={{ width: "100px" }}
               />
-              <button className="btn btn-outline-success" type="submit">
+              <button className="btn btn-outline-light" type="submit">
                 <i className="fa-solid fa-magnifying-glass"></i>
               </button>
             </form>
@@ -54,7 +54,7 @@ export default function NavBar() {
               <ul className="navbar-nav ms-auto me-5 mb-2 mb-lg-0">
                 <li className="nav-item">
                   <Link
-                    className={`nav-link ${path === "/" && "active"}`}
+                    className={`nav-link text-light ${path === "/" && "active"}`}
                     aria-current="page"
                     to="/"
                   >
@@ -63,7 +63,7 @@ export default function NavBar() {
                 </li>
                 <li className="nav-item">
                   <Link
-                    className={`nav-link ${path === "/dashboard/" && "active"}`}
+                    className={`nav-link text-light ${path === "/dashboard/" && "active"}`}
                     to="dashboard/"
                   >
                     Dashboard
@@ -71,7 +71,7 @@ export default function NavBar() {
                 </li>
                 <li className="nav-item">
                   <Link
-                    className={`nav-link ${path === "/projects/" && "active"}`}
+                    className={`nav-link text-light ${path === "/projects/" && "active"}`}
                     to="projects/"
                   >
                     Projects
@@ -82,13 +82,13 @@ export default function NavBar() {
           </div>
           <div className="#others">
             <Link
-              className="btn btn-outline-dark border-0 me-2 hide-me"
+              className="btn btn-outline-light border-0 me-2 hide-me"
               href=""
             >
               <i className="fa-solid fa-moon fa-lg"></i>
             </Link>
             <Link
-              className="btn btn-sm btn-outline-info border text-dark fw-bold sign-in"
+              className="btn btn-sm btn-outline-light border fw-bold sign-in"
               to="sign-in"
             >
               Sign In
