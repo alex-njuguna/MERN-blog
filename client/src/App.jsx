@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { About, Home, Dashboard, Projects, SignIn, SignUp } from "./pages";
-import { NavBar, NotFound } from "./components";
+import { NavBar, NotFound, Footer } from "./components";
 
 export default function App() {
   return (
@@ -16,6 +16,7 @@ export default function App() {
           <Route path="sign-up/" element={<SignUp />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <Footer/>
       </BrowserRouter>
     </>
   );
