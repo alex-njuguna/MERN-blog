@@ -54,7 +54,7 @@ export default function SignUp() {
               Blog
             </Link>
             <p className="mt-3 fs-6 fw-medium">
-              This is a demo project, you can sign in with your email or with a
+              This is a demo project, you can sign up with your email or with a
               google account.
             </p>
           </div>
