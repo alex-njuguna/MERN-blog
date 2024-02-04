@@ -1,105 +1,85 @@
-import "./NavBar.css";
-import { Link, useLocation } from "react-router-dom";
+import {
+  Container,
+  Nav,
+  Navbar,
+  NavDropdown,
+  ButtonGroup,
+  Button,
+} from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-export default function NavBar() {
-  const path = useLocation().pathname;
+function NavBar() {
+  const { currentUser } = useSelector((state) => state.user);
+
   return (
-    <nav
-      className="navbar navbar-expand-lg  shadow fixed-top"
-      style={{ backgroundColor: "#3f51b5" }}
+    <Navbar
+      expand="lg"
+      className="fixed-top text-light"
+      style={{ background: "#3f51b5" }}
     >
-      <div className="container-fluid">
-        <div className="custom-container">
-          <div className="logo">
-            <Link className="navbar-brand text-light" to="/">
-              <span className="bg-danger px-3 py-1 rounded">Alex</span>
-              Blog
-            </Link>
-          </div>
-
-          <div className="search">
-            <form className="d-flex" role="search">
-              <input
-                className="form-control me-2 border-0"
-                type="search"
-                id="search"
-                placeholder="Search"
-                aria-label="Search"
-                style={{ width: "100px" }}
-              />
-              <button className="btn btn-outline-light" type="submit">
-                <i className="fa-solid fa-magnifying-glass"></i>
-              </button>
-            </form>
-          </div>
-
-          <div className="links">
-            <button
-              className="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span className="navbar-toggler-icon"></span>
+      <Container>
+        <Navbar.Brand>
+          <Link className="text-decoration-none" to="/">
+            <span className="bg-danger text-light px-2 py-1 fw-bold rounded shadow">
+              Alex
+            </span>
+            Blog
+          </Link>
+        </Navbar.Brand>
+        <form>
+          <div className="bg-light rounded-pill px-2 py-1">
+            <input
+              type="text"
+              name="search"
+              placeholder="search"
+              style={{ maxWidth: "140px" }}
+              className="border-0"
+            />
+            <button className="btn btn-sm btn-outline-secondary border-0">
+              <i class="fa-solid fa-magnifying-glass"></i>
             </button>
-            <div
-              className="collapse navbar-collapse"
-              id="navbarSupportedContent"
-            >
-              <ul className="navbar-nav ms-auto me-5 mb-2 mb-lg-0">
-                <li className="nav-item">
-                  <Link
-                    className={`nav-link text-light ${
-                      path === "/" && "active"
-                    }`}
-                    aria-current="page"
-                    to="/"
-                  >
-                    Home
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link
-                    className={`nav-link text-light ${
-                      path === "/dashboard/" && "active"
-                    }`}
-                    to="/dashboard/"
-                  >
-                    Dashboard
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link
-                    className={`nav-link text-light ${
-                      path === "/projects/" && "active"
-                    }`}
-                    to="/projects/"
-                  >
-                    Projects
-                  </Link>
-                </li>
-              </ul>
-            </div>
           </div>
-          <div className="#others">
-            <Link
-              className="btn btn-outline-light border-0 me-2 hide-me"
-              href=""
-            >
-              <i className="fa-solid fa-moon fa-lg"></i>
+        </form>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto d-flex flex-row mt-1">
+            <Link className="mx-2 text-decoration-none  fs-6 text-light" to="/">
+              Home
             </Link>
             <Link
-              className="btn btn-sm btn-outline-light border fw-bold sign-in"
-              to="/sign-in/"
+              className="mx-2 text-decoration-none fs-6 text-light"
+              to="/dashboard"
             >
-              Sign In
+              Dashboard
             </Link>
-          </div>
-        </div>
-      </div>
-    </nav>
+            <Link
+              className="mx-2 text-decoration-none fs-6 text-light"
+              to="/projects"
+            >
+              Projects
+            </Link>
+          </Nav>
+        </Navbar.Collapse>
+        <ButtonGroup>
+          <Button variant="outline-light" className="d-none d-md-inline">
+            <i className="fa-solid fa-moon"></i>
+          </Button>
+          <Button variant="outline-light fw-bold" href="/sign-in">
+            Sign in
+          </Button>
+        </ButtonGroup>
+
+        <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+          <Link to="/action/3.1">Action</Link>
+          <Link to="/action/3.2">Another action</Link>
+          <Link to="/action/3.3">Something</Link>
+          <NavDropdown.Divider />
+          <Link to="/action/3.4">Separated link</Link>
+        </NavDropdown>
+      </Container>
+    </Navbar>
   );
 }
+
+export default NavBar;
