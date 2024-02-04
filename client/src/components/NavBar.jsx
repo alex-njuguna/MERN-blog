@@ -11,7 +11,7 @@ import { useSelector } from "react-redux";
 
 function NavBar() {
   const { currentUser } = useSelector((state) => state.user);
-  const userPic = <img src={currentUser.profilePicture} alt="profile picture" width='45px' className="rounded-circle"></img>
+  
 
   return (
     <Navbar
@@ -63,28 +63,54 @@ function NavBar() {
           </Nav>
         </Navbar.Collapse>
         <ButtonGroup>
-          <Button variant="outline-light" className="d-none d-md-inline border-0">
+          <Button
+            variant="outline-light"
+            className="d-none d-md-inline border-0"
+          >
             <i className="fa-solid fa-moon"></i>
           </Button>
-            {currentUser ? (
-              <NavDropdown title={userPic} className="mx-3 my-2" id="basic-nav-dropdown">
-                <Link to="/action/3.1">Action</Link>
-                <Link to="/action/3.2">Another action</Link>
-                <Link to="/action/3.3">Something</Link>
-                <NavDropdown.Divider />
-                <Link to="/action/3.4">Separated link</Link>
-              </NavDropdown>
-            ) : (
-          <Button variant="outline-light">
-
+          {currentUser ? (
+            <NavDropdown
+              title={<img
+                src={currentUser.profilePicture}
+                alt="profile picture"
+                width="45px"
+                className="rounded-circle"
+              ></img>}
+              className="mx-3 my-2"
+              id="basic-nav-dropdown"
+            >
+              <header className="text-dark fs-6 mx-1">
+                <span className="fst-italic text-primary">
+                  @{currentUser.username}
+                </span>
+                <br />
+                {currentUser.email}
+              </header>
+              <hr />
+              <div className="text-center ">
+                <Link
+                  className="text-decoration-none text-primary  w-100 "
+                  to="#"
+                >
+                  Profile
+                </Link>
+                <hr />
+                <Link className="text-decoration-none text-danger w-100" to="#">
+                  sign out
+                </Link>
+              </div>
+            </NavDropdown>
+          ) : (
+            <Button variant="outline-primary">
               <Link
-                className="text-decoration-none text-light fw-bold"
-                to="/sign-n"
+                className="text-decoration-none fw-bold text-light"
+                to="/sign-in"
               >
                 sign in
               </Link>
-          </Button>
-            )}
+            </Button>
+          )}
         </ButtonGroup>
       </Container>
     </Navbar>
