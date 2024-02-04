@@ -11,17 +11,18 @@ import { useSelector } from "react-redux";
 
 function NavBar() {
   const { currentUser } = useSelector((state) => state.user);
+  const userPic = <img src={currentUser.profilePicture} alt="profile picture" width='45px' className="rounded-circle"></img>
 
   return (
     <Navbar
       expand="lg"
-      className="fixed-top text-light"
-      style={{ background: "#3f51b5" }}
+      className="fixed-top text-light p-4"
+      style={{ background: "#4758b3" }}
     >
       <Container>
         <Navbar.Brand>
-          <Link className="text-decoration-none" to="/">
-            <span className="bg-danger text-light px-2 py-1 fw-bold rounded shadow">
+          <Link className="text-decoration-none text-light" to="/">
+            <span className="bg-danger px-2 py-1 fw-bold rounded shadow">
               Alex
             </span>
             Blog
@@ -62,21 +63,29 @@ function NavBar() {
           </Nav>
         </Navbar.Collapse>
         <ButtonGroup>
-          <Button variant="outline-light" className="d-none d-md-inline">
+          <Button variant="outline-light" className="d-none d-md-inline border-0">
             <i className="fa-solid fa-moon"></i>
           </Button>
-          <Button variant="outline-light fw-bold" href="/sign-in">
-            Sign in
-          </Button>
-        </ButtonGroup>
+            {currentUser ? (
+              <NavDropdown title={userPic} className="mx-3 my-2" id="basic-nav-dropdown">
+                <Link to="/action/3.1">Action</Link>
+                <Link to="/action/3.2">Another action</Link>
+                <Link to="/action/3.3">Something</Link>
+                <NavDropdown.Divider />
+                <Link to="/action/3.4">Separated link</Link>
+              </NavDropdown>
+            ) : (
+          <Button variant="outline-light">
 
-        <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-          <Link to="/action/3.1">Action</Link>
-          <Link to="/action/3.2">Another action</Link>
-          <Link to="/action/3.3">Something</Link>
-          <NavDropdown.Divider />
-          <Link to="/action/3.4">Separated link</Link>
-        </NavDropdown>
+              <Link
+                className="text-decoration-none text-light fw-bold"
+                to="/sign-n"
+              >
+                sign in
+              </Link>
+          </Button>
+            )}
+        </ButtonGroup>
       </Container>
     </Navbar>
   );
