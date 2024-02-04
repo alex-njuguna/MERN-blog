@@ -12,9 +12,7 @@ export default function NavBar() {
         <div className="custom-container">
           <div className="logo">
             <Link className="navbar-brand text-light" to="/">
-              <span className="bg-danger px-3 py-1 rounded">
-                Alex
-              </span>
+              <span className="bg-danger px-3 py-1 rounded">Alex</span>
               Blog
             </Link>
           </div>
@@ -54,7 +52,9 @@ export default function NavBar() {
               <ul className="navbar-nav ms-auto me-5 mb-2 mb-lg-0">
                 <li className="nav-item">
                   <Link
-                    className={`nav-link text-light ${path === "/" && "active"}`}
+                    className={`nav-link text-light ${
+                      path === "/" && "active"
+                    }`}
                     aria-current="page"
                     to="/"
                   >
@@ -63,16 +63,20 @@ export default function NavBar() {
                 </li>
                 <li className="nav-item">
                   <Link
-                    className={`nav-link text-light ${path === "/dashboard/" && "active"}`}
-                    to="dashboard/"
+                    className={`nav-link text-light ${
+                      path === "/dashboard/" && "active"
+                    }`}
+                    to="/dashboard/"
                   >
                     Dashboard
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link
-                    className={`nav-link text-light ${path === "/projects/" && "active"}`}
-                    to="projects/"
+                    className={`nav-link text-light ${
+                      path === "/projects/" && "active"
+                    }`}
+                    to="/projects/"
                   >
                     Projects
                   </Link>
@@ -89,7 +93,7 @@ export default function NavBar() {
             </Link>
             <Link
               className="btn btn-sm btn-outline-light border fw-bold sign-in"
-              to="sign-in"
+              to="/sign-in/"
             >
               Sign In
             </Link>

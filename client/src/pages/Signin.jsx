@@ -7,6 +7,8 @@ import {
   signInFailure,
 } from "../redux/user/userSlice";
 
+import { OAuth } from "../components";
+
 export default function SignIn() {
   const [formData, setFormData] = useState({});
   const { loading, error: errorMessage } = useSelector((state) => state.user);
@@ -26,7 +28,7 @@ export default function SignIn() {
     }
 
     try {
-      dispatch(signInStart);
+      dispatch(signInStart());
       const res = await fetch("/api/auth/signin", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -111,6 +113,7 @@ export default function SignIn() {
                 )}
               </button>
             </form>
+            <OAuth />
             <div className="mt-3">
               <span>Don't have an account? </span>
               <Link className="text-decoration-none" to="/sign-up/">
