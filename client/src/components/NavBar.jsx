@@ -8,21 +8,9 @@ import {
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { toggleTheme } from "../redux/theme/themeSlice";
-import { useState } from "react";
 
 function NavBar() {
   const { currentUser } = useSelector((state) => state.user);
-  const dispatch = useDispatch();
-
-  const [theme, setTheme] = useState("light");
-
-  const changeTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light";
-    setTheme(newTheme);
-
-    dispatch(toggleTheme(newTheme));
-  };
 
   return (
     <Navbar
@@ -50,7 +38,6 @@ function NavBar() {
             />
             <button
               className="btn btn-sm btn-outline-secondary border-0"
-              onClick={changeTheme}
             >
               <i className="fa-solid fa-magnifying-glass"></i>
             </button>
@@ -77,13 +64,6 @@ function NavBar() {
           </Nav>
         </Navbar.Collapse>
         <ButtonGroup>
-          <Button
-            variant="outline-light"
-            className="d-none d-md-inline border-0"
-            onClick={() => dispatch(toggleTheme())}
-          >
-            <i className="fa-solid fa-moon"></i>
-          </Button>
           {currentUser ? (
             <NavDropdown
               title={
