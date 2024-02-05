@@ -1,12 +1,11 @@
-import { Children } from "react";
-import { UseSelector, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 export default function ThemeProvider({ children }) {
   const { theme } = useSelector((state) => state.theme);
 
   return (
     <div className={theme}>
-      <div class="bg-light text-dark">{children}</div>
+      <div className="bg-light text-dark">{children}</div>
     </div>
   );
 }
